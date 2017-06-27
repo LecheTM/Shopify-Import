@@ -1,6 +1,3 @@
-# gem install shopify_api
-# irb
-
 require 'fileutils'
 require 'shopify_api'
 require 'yaml'
