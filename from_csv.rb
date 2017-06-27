@@ -4,13 +4,23 @@
 
 #CYCLE = 0.5
 
-require 'shopify_api'
 require 'csv'
 require 'fileutils'
+require 'shopify_api'
+require 'yaml'
 
-ShopifyAPI::Base.site = "https://8d416c2693e53fbc49466a3508469d7c:b3969458da8821c730af765b50d30838@leche-app-development.myshopify.com/admin"
+config = YAML.load_file('config.yml')
 
-product_count = 3851
+puts config
+
+csv = config['csv']
+private_app_key = config['private_app_key'] 
+private_app_password = config['private_app_password'] 
+product_count = config['product_count']
+shopify_store = config['shopify_store']
+
+ShopifyAPI::Base.site = "https://#{private_app_key}:#{private_app_password}@#{shopify_store}.myshopify.com/admin"
+
 puts "Total product count: #{product_count}" 
 chunks = (product_count / 50).ceil
 

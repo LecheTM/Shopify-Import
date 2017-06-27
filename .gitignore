@@ -1,0 +1,5 @@
+# contains credentials
+config.yml
+
+# contains data
+cvs/*
