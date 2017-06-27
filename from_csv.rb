@@ -10,16 +10,14 @@ require 'shopify_api'
 require 'yaml'
 
 config = YAML.load_file('config.yml')
+development = config['development']
 
-puts config
-
-csv = config['csv']
-private_app_key = config['private_app_key'] 
-private_app_password = config['private_app_password'] 
+private_app_key = development['key'] 
+private_app_password = development['password'] 
 product_count = config['product_count']
-shopify_store = config['shopify_store']
+store = development['store']
 
-ShopifyAPI::Base.site = "https://#{private_app_key}:#{private_app_password}@#{shopify_store}.myshopify.com/admin"
+ShopifyAPI::Base.site = "https://#{private_app_key}:#{private_app_password}@#{store}.myshopify.com/admin"
 
 puts "Total product count: #{product_count}" 
 chunks = (product_count / 50).ceil
