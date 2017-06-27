@@ -1,0 +1,5 @@
+development:
+  key: [ private_app_key ]
+  password: [ private_app_password ]
+  product_count: [ product_count_/_csv_rows ]]
+  store: [ shopify_store ]

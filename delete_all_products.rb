@@ -1,10 +1,18 @@
 # gem install shopify_api
 # irb
 
-require 'shopify_api'
 require 'fileutils'
+require 'shopify_api'
+require 'yaml'
 
-ShopifyAPI::Base.site = "https://8d416c2693e53fbc49466a3508469d7c:b3969458da8821c730af765b50d30838@leche-app-development.myshopify.com/admin"
+config = YAML.load_file('config.yml')
+development = config['development']
+
+private_app_key = development['key'] 
+private_app_password = development['password'] 
+store = development['store']
+
+ShopifyAPI::Base.site = "https://#{private_app_key}:#{private_app_password}@#{store}.myshopify.com/admin"
 
 # Get a specific product
 products = ShopifyAPI::Product.all
