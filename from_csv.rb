@@ -1,9 +1,3 @@
-# Get credentials: https://help.shopify.com/api/getting-started/authentication/private-authentication
-# # gem install shopify_api
-# # irb
-
-#CYCLE = 0.5
-
 require 'csv'
 require 'fileutils'
 require 'shopify_api'
@@ -22,10 +16,8 @@ ShopifyAPI::Base.site = "https://#{private_app_key}:#{private_app_password}@#{st
 puts "Total product count: #{product_count}" 
 chunks = (product_count / 50).ceil
 
-# Initializing.
 start_time = Time.now
 
-# While we still have products.
 1.upto(chunks) do |chunk|
 
   unless chunk == 1
@@ -35,11 +27,8 @@ start_time = Time.now
     processing_duration = stop_time - start_time
     puts "The processing lasted #{processing_duration.to_i} seconds."
     wait_time = 20
-    #wait_time = (CYCLE - processing_duration).ceil
     puts "We will wait 20 seconds then we will resume."
-    #puts "We have to wait #{wait_time} seconds then we will resume."
     sleep wait_time 
-    #sleep wait_time if wait_time > 0
     start_time = Time.now
   end
 
@@ -75,12 +64,3 @@ start_time = Time.now
     end
   end
 end
-
-# Process shopping.csv
-#CSV.foreach('shopping.csv', headers: true) do |row|
-#  new_product = ShopifyAPI::Product.new
-#  new_product.title = row['Product Name']
-#  #new_product.product_type = "Snowboard"
-#  new_product.vendor = "Burton"
-#  new_product.save
-#end
