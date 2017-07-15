@@ -2,6 +2,7 @@
 # Product Titles are product in as array of strings
 # Collection Name is harded as string
 
+require 'csv'
 require 'fileutils'
 require 'shopify_api'
 require 'yaml'
@@ -36,7 +37,7 @@ csv = CSV.read('csv/update_by_titles.csv')
 csv.each.with_index do |row, i|
   if i == 0 
     tag += row[1]
-    puts tag 
+    puts "Updating products with tag: #{tag}"
   end
   product_title = row[0]
   product_titles.push(product_title)
@@ -54,4 +55,4 @@ products.each do |product|
     product.save
   end 
 end
-puts count
+puts "#{count} Products Updated"
