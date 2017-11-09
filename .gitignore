@@ -2,4 +2,4 @@
 config.yml
 
 # contains data
-cvs/*
+csv/*
