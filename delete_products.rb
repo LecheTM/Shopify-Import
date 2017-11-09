@@ -1,13 +1,13 @@
+# Delete all products from a store
+
 require 'fileutils'
 require 'shopify_api'
 require 'yaml'
 
 config = YAML.load_file('config.yml')
-development = config['development']
-
-private_app_key = development['key'] 
-private_app_password = development['password'] 
-store = development['store']
+private_app_key = config['store_credentials']['key'] 
+private_app_password = config['store_credentials']['password'] 
+store = config['store_credentials']['name']
 
 ShopifyAPI::Base.site = "https://#{private_app_key}:#{private_app_password}@#{store}.myshopify.com/admin"
 
