@@ -1,14 +1,15 @@
-# Migrate + Shopify = MigratifyM #
-A Ruby Shopify API console intration to help importing data for migrations from other systems
-
+# Migrate + Shopify = Migratify #
+A Ruby / Shopify API console integration to help importing data in and out of Shopify stores
 - - - -
+
+
 ## TODO ##
 - - - -
-- [] delete\_products - add a dummy check / opt-in so as not to just delete all of a stores products
-- [] import\_metafields\_from\_csv - add a dummy check / opt-in so as not to just delete all of a stores products
-- [] come up with a more dymaic wait to handle pausing (https://help.shopify.com/api/getting-started/api-call-limit) 
-- [] have csv count lines to determine chunks of processing / get rid of hardcoding at 50 rows / products
-- [] generate wait intervals instead of hardcoding to 20 seconds 
+- [ ] delete\_products - add a dummy check / opt-in so as not to just delete all of a stores products
+- [ ] import\_metafields\_from\_csv - add a dummy check / opt-in so as not to just delete all of a stores products
+- [ ] come up with a more dymaic wait to handle pausing (https://help.shopify.com/api/getting-started/api-call-limit) 
+- [ ] have csv count lines to determine chunks of processing / get rid of hardcoding at 50 rows / products
+- [ ] generate wait intervals instead of hardcoding to 20 seconds 
 
 - - - -
 ## MIGRATIFY - config.yml ##
