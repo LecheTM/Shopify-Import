@@ -4,7 +4,6 @@ A Ruby / Shopify API console integration to help importing data in and out of Sh
 
 
 ## TODO ##
-- - - -
 - [ ] delete\_products - add a dummy check / opt-in so as not to just delete all of a stores products
 - [ ] import\_metafields\_from\_csv - add a dummy check / opt-in so as not to just delete all of a stores products
 - [ ] come up with a more dymaic wait to handle pausing (https://help.shopify.com/api/getting-started/api-call-limit) 
@@ -12,30 +11,27 @@ A Ruby / Shopify API console integration to help importing data in and out of Sh
 - [ ] generate wait intervals instead of hardcoding to 20 seconds 
 
 - - - -
+
 ## MIGRATIFY - config.yml ##
-- - - -
 
 ### PARAMS REQUIRED BY ALL FEATURES ###
-- - - -
-#### store-credentials #### 
-**See Feature Descriptions for additional needed params**
+**all params are namespace by 'store-credentials'**
 * PARAMS
   * key: the api key for the store being used, or in the case of migration, the "from" store
   * password: the api password for the store being used, or in the case of migration, the "from" store
   * name: name of the store, the '.myshopify.com' is implied (name.myshopify.com)
 
 ### ADDITIONAL PARAMS REQUIRED BY EACH FEATURE ###
-- - - -
-#### delete\_products ####
-**this feature only requires the store credentials so BE CAREFUL**
+#### :: delete\_products :: ####
+__this feature only requires the store credentials so BE CAREFUL__
 
-#### export\_metafields\_to\_csv ####
-**parses a csv and posts metafields to Shopify API**
+#### :: export\_metafields\_to\_csv "" ####
+__parses a csv and posts metafields to Shopify API__
 * PARAMS
   * product\_count: total number of products being exported used to keep api calls from exceeding threshold
 
-#### impoprt\_collections\_from\_csv ####
-**parses a csv and posts collections to Shopify API**
+#### :: impoprt\_collections\_from\_csv :: ####
+__parses a csv and posts collections to Shopify API__
 * PARAMS
   * collection\_count: total number of collections (rows) being imported used to keep api calls from exceeding threshold
 
