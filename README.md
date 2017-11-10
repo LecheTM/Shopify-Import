@@ -3,11 +3,14 @@ A Ruby / Shopify API console integration to help importing data in and out of Sh
 - - - -
 
 ## TODO ##
+- [ ] (all rb) softcode values across all scripts; make it cl input for now
+- [ ] (all rb) abstract chunking functionality for includion in scripts
+- [ ] (most rb) review chunking so that not a hardcoded guess on how long interval is needed not to exceed the Shopify API rate 
 - [ ] delete\_products - add a dummy check / opt-in so as not to just delete all of a stores products
+- [ ] delete\_products - is there a more efficient way the get all products, go one at a time? api rate limit? 
+- [ ] export\_metafields\_to\_csv - make retrieval of metafields names to be exported dynamic 
 - [ ] import\_metafields\_from\_csv - add a dummy check / opt-in so as not to just delete all of a stores products
-- [ ] come up with a more dymaic wait to handle pausing (https://help.shopify.com/api/getting-started/api-call-limit) 
-- [ ] have csv count lines to determine chunks of processing / get rid of hardcoding at 50 rows / products
-- [ ] generate wait intervals instead of hardcoding to 20 seconds 
+- [ ] create shopify\_app gem to handle (architecture / control structure, OAuth, store integration, frontend)
 - - - -
 
 ## MIGRATIFY - config.yml ##

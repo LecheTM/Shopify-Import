@@ -13,10 +13,9 @@ product_count = config['export_metafields']['product_count']
 
 ShopifyAPI::Base.site = "https://#{private_app_key}:#{private_app_password}@#{store}.myshopify.com/admin"
 
+# chunking 
 chunks = (product_count / 25).ceil
-
 start_time = Time.now
-
 page = 1
 products = []
 count = ShopifyAPI::Product.count
@@ -30,6 +29,7 @@ if count > 0
   end
 end
 puts "returning #{products.length} products"
+# end chunking
 
 date = Time.now.strftime("%Y%m%d")
 CSV.open("csv/#{store}_export_metafields.#{date}.csv", "wb") do |csv|
@@ -55,7 +55,6 @@ CSV.open("csv/#{store}_export_metafields.#{date}.csv", "wb") do |csv|
 
     products.each_with_index {|product, index|
 
-      # TODO: abstract this to grab all metafields dynamically, rather than specific metafields
       if index > lower_limit and index < upper_limit  
 
         handle = product.handle
@@ -72,7 +71,6 @@ CSV.open("csv/#{store}_export_metafields.#{date}.csv", "wb") do |csv|
         reviews = ""
 
         mf_json.each do |mf|
-
 
           if mf['namespace'] == "spr" 
             puts mf
@@ -102,6 +100,5 @@ CSV.open("csv/#{store}_export_metafields.#{date}.csv", "wb") do |csv|
 
       end
     }
-
   end
 end
