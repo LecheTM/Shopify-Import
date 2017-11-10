@@ -46,12 +46,10 @@ A Ruby / Shopify API console integration to help importing data in and out of Sh
 * PARAMS
   * product\_count: total number of collections (rows) being imported used to keep api calls from exceeding threshold
 
-#### :: migrate\_collections\_between\_stores :: ####
-*retrieves products within a single collection from one store and adds tags to smart collection in another store*
+#### :: migrate\_smart\_collections :: ####
+*retrieves smart collections, creates corresponding smart collections with rules in another store*
 *key, password, and name params for this feature mean "the store from which collections are being migrated"*
 * PARAMS
-  * product\_count: total number of collections (rows) being imported used to keep api calls from exceeding threshold
-  * to\_collection\_id: collection id of collection being migrated to
   * to\_key: api key of private app in store being migrated to
   * to\_password: api password of private app in store being migrated to
   * to\_name: name of store being migrated to
