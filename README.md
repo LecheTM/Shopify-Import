@@ -6,6 +6,9 @@ A Ruby / Shopify API console integration to migrate data between stores
 - [ ] (all rb) softcode values across all scripts; make it cl input for now
 - [ ] (all rb) abstract chunking functionality for includion in scripts
 - [ ] (most rb) review chunking so that not a hardcoded guess on how long interval is needed not to exceed the Shopify API rate 
+- [ ] migrate\_blogs
+- [ ] migrate\_blogs_posts
+- [ ] migrate\_manutal\_collections
 - [ ] delete\_products - add a dummy check / opt-in so as not to just delete all of a stores products
 - [ ] delete\_products - is there a more efficient way the get all products, go one at a time? api rate limit? 
 - [ ] export\_metafields\_to\_csv - make retrieval of metafields names to be exported dynamic 
