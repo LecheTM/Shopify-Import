@@ -1,5 +1,5 @@
 # Migrate + Shopify = Migratify #
-A Ruby / Shopify API console integration to help importing data in and out of Shopify stores
+A Ruby / Shopify API console integration to migrate data between stores 
 - - - -
 
 ## TODO ##
@@ -11,6 +11,7 @@ A Ruby / Shopify API console integration to help importing data in and out of Sh
 - [ ] export\_metafields\_to\_csv - make retrieval of metafields names to be exported dynamic 
 - [ ] import\_metafields\_from\_csv - add a dummy check / opt-in so as not to just delete all of a stores products
 - [ ] create shopify\_app gem to handle (architecture / control structure, OAuth, store integration, frontend)
+- [ ] create feature to migrate settings content
 - - - -
 
 ## MIGRATIFY - config.yml ##
