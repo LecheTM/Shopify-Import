@@ -4,6 +4,7 @@ A Ruby / Shopify API console integration to migrate data between stores
 
 ## TODO ##
 - [ ] softcode config file pickup
+- [ ] this is a test for gitflow-github use
 - [ ] (all rb) softcode values across all scripts; make it cl input for now
 - [ ] (all rb) abstract chunking functionality for includion in scripts
 - [ ] (most rb) review chunking so that not a hardcoded guess on how long interval is needed not to exceed the Shopify API rate 
