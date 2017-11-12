@@ -1,4 +1,4 @@
-# Used to create Staging Smart Collections from existing Production Smart Collections 
+# Used to migrate Smart Collections and Products from one store to another
 
 require 'json'
 require 'open-uri'
