@@ -1,5 +1,6 @@
 # contains credentials
-config.yml
+config
+config/*
 
 # contains data
 csv/*
