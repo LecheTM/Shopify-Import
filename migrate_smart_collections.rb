@@ -73,4 +73,4 @@ origin_smart_collections.each { |origin_smart_collection|
     p failed_smart_collection_json
   end
 }
-p total_smart_collections_migrated + "SmartCollections successfully migrated"
+p "#{total_smart_collections_migrated} SmartCollections successfully migrated"
