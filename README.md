@@ -6,6 +6,7 @@ A Ruby / Shopify API console integration to migrate data between stores
 - [ ] (all rb) softcode values across all scripts; make it cl input for now
 - [ ] (all rb) abstract chunking functionality for includion in scripts
 - [ ] (most rb) review chunking so that not a hardcoded guess on how long interval is needed not to exceed the Shopify API rate 
+- [ ] migrate\_metafields - assuming this should be called from each distrinct script, where an object allows metafields
 - [ ] migrate\_blogs
 - [ ] migrate\_blogs_posts
 - [ ] migrate\_manutal\_collections
@@ -15,6 +16,8 @@ A Ruby / Shopify API console integration to migrate data between stores
 - [ ] import\_metafields\_from\_csv - add a dummy check / opt-in so as not to just delete all of a stores products
 - [ ] create shopify\_app gem to handle (architecture / control structure, OAuth, store integration, frontend)
 - [ ] create feature to migrate settings content
+- [ ] add conditionals to erase or update objects (collections, blogs, articles, pages)
+- [ ] add opt in to update or overwrite existing objects (collections, blogs, articles, pages)
 - - - -
 
 ## MIGRATIFY - config.yml ##

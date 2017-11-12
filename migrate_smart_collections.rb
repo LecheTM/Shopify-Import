@@ -1,4 +1,4 @@
-# retrieves smart collections, creates corresponding smart collections with rules in another store
+# migrates SmartCollections from origin store to destination store 
 
 require 'json'
 require 'open-uri'
@@ -71,7 +71,6 @@ origin_smart_collections.each { |origin_smart_collection|
   else
     failed_smart_collection_json =  destination_smart_collection.as_json
     p failed_smart_collection_json
-    #p "#{destination_smart_collection} failed to migrate"
   end
 }
-p "#{total_smart_collections_migrated} successfully migrated"
+p total_smart_collections_migrated + "SmartCollections successfully migrated"

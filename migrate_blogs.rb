@@ -1,4 +1,4 @@
-# migrates Pages from origin store to destination store 
+# migrates Blogs from origin store to destination store
 
 require 'json'
 require 'open-uri'
@@ -13,20 +13,20 @@ origin_password = config['password']
 origin_name = config['name']
 ShopifyAPI::Base.site = "https://#{origin_key}:#{origin_password}@#{origin_name}.myshopify.com/admin"
 
-# get all origin Pages 
+# get all origin Blogs 
 page = 1
-origin_pages = []
-count = ShopifyAPI::Page.count
-puts "Number of Pages: #{count}"
+origin_blogs = []
+count = ShopifyAPI::Blog.count
+puts "Number of blogs: #{count}"
 if count > 0
   page += count.divmod(50).first
   while page > 0
     puts "Processing page #{page}"
-    origin_pages += ShopifyAPI::Page.all(:params => {:page => page, :limit => 50})
+    origin_blogs += ShopifyAPI::Blog.all(:params => {:page => page, :limit => 50})
     page -= 1
   end
 end
-puts "returning #{origin_pages.length} Pages"
+puts "returning #{origin_blogs.length} Blogs"
 
 # connect to destination store
 destination_key = config['destination_key'] 
@@ -34,26 +34,26 @@ destination_password = config['destination_password']
 destination_name = config['destination_name']
 ShopifyAPI::Base.site = "https://#{destination_key}:#{destination_password}@#{destination_name}.myshopify.com/admin"
 
-# create all destination Pages and save to destination store
-total_pages_migrated = 0
-origin_pages.each { |origin_page| 
+# create all destination Blogs and save to destination store
+total_blogs_migrated = 0
+origin_blogs.each { |origin_blog| 
   origin_hash = {}
-  origin_page.instance_variables.each {|var| origin_hash[var.to_s.delete("@")] = origin_page.instance_variable_get(var)}
+  origin_blog.instance_variables.each {|var| origin_hash[var.to_s.delete("@")] = origin_blog.instance_variable_get(var)}
   origin_attributes = origin_hash['attributes']
 
   destination_attributes = {}
   origin_attributes.each do |key, value|
-    unless ['id','shop_id'].include? key 
+    unless key == 'id' 
       destination_attributes["#{key}"] = value
     end
   end
-  destination_page = ShopifyAPI::Page.new(destination_attributes)
-  success = destination_page.save
+  destination_blog = ShopifyAPI::Blog.new(destination_attributes)
+  success = destination_blog.save
   if success 
-    total_pages_migrated += 1
+    total_blogs_migrated += 1
   else
-    failed_page_json =  destination_page.as_json
-    p failed_page_json
+    failed_blog_json = destination_blog.as_json
+    p failed_blog_json
   end
 }
-p total_pages_migrated + "Pages successfully migrated"
+p total_blogs_migrated + "Blogs successfully migrated"
