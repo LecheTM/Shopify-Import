@@ -37,39 +37,39 @@ A Ruby / Shopify API console integration to migrate data between stores
 
 #### :: export\_metafields\_to\_csv ::  ####
 *parses a csv and posts metafields to Shopify API*
-* PARAMS
+* ADDITIONAL PARAMS
   * product\_count: total number of products being exported used to keep api calls from exceeding threshold
-
-#### :: impoprt\_collections\_from\_csv :: ####
-*parses a csv and posts collections to Shopify API*
-* PARAMS
-  * collection\_count: total number of collections (rows) being imported used to keep api calls from exceeding threshold
 
 #### :: impoprt\_metafields\_from\_csv :: #### 
 *parses a csv and posts metatfields to Shopify API*
-* PARAMS
+* ADDITIONAL PARAMS
   * collection\_count: total number of collections (rows) being imported used to keep api calls from exceeding threshold
 
-#### :: impoprt\_products\_from\_csv :: #### 
-*parses csv and posts products to Shopify API*
-* PARAMS
-  * product\_count: total number of collections (rows) being imported used to keep api calls from exceeding threshold
-
-#### :: migrate\_smart\_collections :: ####
-*retrieves smart collections, creates corresponding smart collections with rules in another store*
-*key, password, and name params for this feature mean "the store from which collections are being migrated"*
-* PARAMS
+#### :: migrate\_articles :: ####
+*retrieves articles from origin store, creates corresponding smart collections with in destination store*
+*key, password, and name params for this feature mean "the origin store from which articles are being migrated"*
+* ADDTIONAL PARAMS
   * to\_key: api key of private app in store being migrated to
   * to\_password: api password of private app in store being migrated to
   * to\_name: name of store being migrated to
-
-#### :: migrate\_collects\_between\_stores :: ####
-*retrieves collects corresponding to a single collection id and product titles from one store and creates corresponding*
-*collects for configured collection id and product titles in another store*
-* PARAMS
-  * product: total number of collections (rows) being imported used to keep api calls from exceeding threshold
-
-#### :: update\_products\_with\_tags :: ####
-*parses a csv and updates products by title with a single tag*
-* PARAMS
-  * product: total number of collections (rows) being imported used to keep api calls from exceeding threshold
+#### :: migrate\_blogs :: ####
+*retrieves blogs from origin store, creates corresponding blogs in destination store*
+*key, password, and name params for this feature mean "the origin store from which blogs are being migrated"*
+* ADDITIONAL PARAMS
+  * to\_key: api key of private app in store being migrated to
+  * to\_password: api password of private app in store being migrated to
+  * to\_name: name of store being migrated to
+#### :: migrate\_pages :: ####
+*retrieves smart pages, creates corresponding pages in destination store*
+*key, password, and name params for this feature mean "the origin store from which pages are being migrated"*
+* ADDITIONAL PARAMS
+  * to\_key: api key of private app in store being migrated to
+  * to\_password: api password of private app in store being migrated to
+  * to\_name: name of store being migrated to
+#### :: migrate\_smart\_collections :: ####
+*retrieves smart collections from origin store, creates corresponding smart collections with rules in destination store*
+*key, password, and name params for this feature mean "the origin store from which collections are being migrated"*
+* ADDITIONAL PARAMS
+  * to\_key: api key of private app in store being migrated to
+  * to\_password: api password of private app in store being migrated to
+  * to\_name: name of store being migrated to
