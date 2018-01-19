@@ -56,4 +56,4 @@ origin_pages.each { |origin_page|
     p failed_page_json
   end
 }
-p "#{total_pages_migrated} Pages successfully migrated"
+puts "#{total_pages_migrated} Pages successfully migrated"
