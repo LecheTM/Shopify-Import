@@ -6,10 +6,10 @@ require 'shopify_api'
 require 'yaml'
 
 config = YAML.load_file('config.yml')
-private_app_key = config['store_credentials']['key'] 
-private_app_password = config['store_credentials']['password'] 
-store = config['store_credentials']['name']
-product_count = config['export_metafields']['product_count']
+private_app_key = config['key'] 
+private_app_password = config['password'] 
+store = config['name']
+product_count = config['product_count']
 
 ShopifyAPI::Base.site = "https://#{private_app_key}:#{private_app_password}@#{store}.myshopify.com/admin"
 
@@ -63,40 +63,33 @@ CSV.open("csv/#{store}_export_metafields.#{date}.csv", "wb") do |csv|
         mf_json = metafields.as_json
 
         # configure for particular store
-        #nexternal_id = ""
-        #internal_memo = ""
-        #author =  ""
-        #related_handles = ""
-        #related_ids = ""
-        reviews = ""
+        directions = ""
+        disclaimer = ""
+        ingredients = ""
 
         mf_json.each do |mf|
 
-          if mf['namespace'] == "spr" 
+          if mf['namespace'] == "left-column" 
             puts mf
             puts "++++++++++++++++++"
             reviews = mf['value']
             puts handle + ": " + reviews
           end
 
-          #case mf['key']
-          #when "nexternal_id" 
-          #  nexternal_id = mf['value']
-          #when "internal_memo" 
-          #  internal_memo = mf['value']
-          #when "author" 
-          #  author = mf['value']
-          #when "related_handles" 
-          #  related_handles = mf['value']
-          #when "related_ids" 
-          #  related_ids = mf['value']
-          #end
+          case mf['key']
+          when "directions" 
+            directions = mf['value']
+          when "disclaimer" 
+            disclaimer = mf['value']
+          when "ingredients" 
+            ingredients = mf['value']
+          end
 
         end
         #.first['value'] 
         #mf_hash = JSON.parse(mf_json)
         #puts mf_hash.inspect
-        csv << [product_id, handle, "reviews", reviews ]
+        csv << [product_id, handle, directions, disclaimer, ingredients]
 
       end
     }
