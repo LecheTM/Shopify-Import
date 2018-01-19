@@ -49,27 +49,27 @@ A Ruby / Shopify API console integration to migrate data between stores
 *retrieves articles from origin store, creates corresponding smart collections with in destination store*
 *key, password, and name params for this feature mean "the origin store from which articles are being migrated"*
 * ADDTIONAL PARAMS
-  * to\_key: api key of private app in store being migrated to
-  * to\_password: api password of private app in store being migrated to
-  * to\_name: name of store being migrated to
+  * destination\_key: api key of private app in store being migrated to
+  * destination\_password: api password of private app in store being migrated to
+  * destination\_name: name of store being migrated to
 #### :: migrate\_blogs :: ####
 *retrieves blogs from origin store, creates corresponding blogs in destination store*
 *key, password, and name params for this feature mean "the origin store from which blogs are being migrated"*
 * ADDITIONAL PARAMS
-  * to\_key: api key of private app in store being migrated to
-  * to\_password: api password of private app in store being migrated to
-  * to\_name: name of store being migrated to
+  * destination\_key: api key of private app in store being migrated to
+  * destination\_password: api password of private app in store being migrated to
+  * destination\_name: name of store being migrated to
 #### :: migrate\_pages :: ####
 *retrieves smart pages, creates corresponding pages in destination store*
 *key, password, and name params for this feature mean "the origin store from which pages are being migrated"*
 * ADDITIONAL PARAMS
-  * to\_key: api key of private app in store being migrated to
-  * to\_password: api password of private app in store being migrated to
-  * to\_name: name of store being migrated to
+  * destination\_key: api key of private app in store being migrated to
+  * destination\_password: api password of private app in store being migrated to
+  * destination\_name: name of store being migrated to
 #### :: migrate\_smart\_collections :: ####
 *retrieves smart collections from origin store, creates corresponding smart collections with rules in destination store*
 *key, password, and name params for this feature mean "the origin store from which collections are being migrated"*
 * ADDITIONAL PARAMS
-  * to\_key: api key of private app in store being migrated to
-  * to\_password: api password of private app in store being migrated to
-  * to\_name: name of store being migrated to
+  * destination\_key: api key of private app in store being migrated to
+  * destination\_password: api password of private app in store being migrated to
+  * destination\_name: name of store being migrated to
