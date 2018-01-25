@@ -108,4 +108,4 @@ origin_articles.each { |origin_article|
     p failed_article_json
   end
 }
-p "#{total_articles_migrated} Articles successfully migrated"
+puts "#{total_articles_migrated} Articles successfully migrated"

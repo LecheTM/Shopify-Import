@@ -56,4 +56,4 @@ origin_blogs.each { |origin_blog|
     p failed_blog_json
   end
 }
-p total_blogs_migrated + "Blogs successfully migrated"
+puts "#{total_blogs_migrated} Blogs successfully migrated"
